@@ -1,20 +1,27 @@
-let wordCombo = "";
+let navBtn = document.getElementById("toggleNav");
+navBtn.addEventListener('click', (e) => {
+    console.log(navBtn.checked)
+    if(navBtn.checked) {
+        document.addEventListener('click', closeNav);
+        
+    } else {
+        document.removeEventListener('click', closeNav);
+    }
+})
 
+function closeNav(e) {
+    if(e.target.id !== navBtn.id) {
+        navBtn.checked = false;
+    }
+}
+
+let wordCombo = "";
 document.addEventListener('keyup', (e) => {
-    if(e.key === "b" && wordCombo === "") {
-        wordCombo+= e.key;
-    } else if (e.key === "u" && wordCombo === "b") {
-        wordCombo += e.key;
-    } else if (e.key === "t" && wordCombo === "bu" || e.key === "t" && wordCombo === "but") {
-        wordCombo += e.key;
-    } else if (e.key === "p" && wordCombo === "butt") {
-        wordCombo += e.key;
-    } else if (e.key === "l" && wordCombo === "buttp") {
-        wordCombo += e.key;
-    } else if (e.key === "u" && wordCombo === "buttpl") {
-        wordCombo += e.key;
-    } else if (e.key === "g" && wordCombo === "buttplu") {
-        wordCombo += e.key;
+    setTimeout(function(){
+        wordCombo = "";
+    }, 2000);
+    wordCombo+= e.key;
+    if(wordCombo=='buttplug'){
         console.log(`
         G#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#G
         GGB&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#BGG
@@ -37,12 +44,9 @@ document.addEventListener('keyup', (e) => {
         #####&@@@@@#####&@@@@@@@@@@@@@@@@&#####@@@@@&#####
         #####&&&&&&#####&@@@@@@@@@@@@@@@@&#####&&&&&&#####
         ################&@@@@@@@@@@@@@@@@&################
-        &&&&&&&&&&&&&&&#&@@@@@@@@@@@@@@@@&#&&&&&&&&&&&&&&&`)
-
-        setTimeout(() => {
-            wordCombo = "";
-        }, 2000);
-    } else {
-        wordCombo = "";
+        &&&&&&&&&&&&&&&#&@@@@@@@@@@@@@@@@&#&&&&&&&&&&&&&&&
+        
+        Get your very own MazPlug™ today!`)
     }
+    
 });
