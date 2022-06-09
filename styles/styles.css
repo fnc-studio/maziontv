@@ -57,6 +57,7 @@
 html {
     font-size: 16px;
     scrollbar-color: var(--red) var(--black);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -104,15 +105,27 @@ main {
 }
 
 aside {
+    position: relative;
+    top: 30px;
     grid-area: sidebar;
     padding-right: 4rem;
     min-height: 400px;
 }
 
+@media(min-width:968px) {
+    aside {
+        position: sticky;
+    }
+}
+
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-area: footer;
-    min-height: 400px;
+    min-height: 50px;
     background-color: var(--black);
+    border-top: 1px solid var(--red);
 }
 
 main,
@@ -391,6 +404,10 @@ main>article {
 
 }
 
+section.youtube {
+    margin-top: 2rem;
+}
+
 .youtube iframe {
     aspect-ratio: 16/9;
     width: 100%;
@@ -490,6 +507,7 @@ aside h3 {
 
 aside .rugaz-buttons {
     columns: 2;
+    padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
@@ -558,6 +576,12 @@ aside .btn {
     .primary-navigation .navigation-window {
         width: 100vw;
         max-width: 480px;
+    }
+}
+
+@media (max-width: 960px) {
+    aside {
+        padding: 0 2rem;
     }
 }
 
